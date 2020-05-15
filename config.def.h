@@ -16,6 +16,11 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeStatus] = { col_gray3, col_gray1, "#000000" }, // Statusbar right {text,background,border(unused)}
+	[SchemeTagsSel] = { col_gray4, col_cyan, "#000000" }, // Tagbar left selected {text,background,border(unused)}
+	[SchemeTagsNorm] = { col_gray3, col_gray1, "#000000" }, // Tagbar left unselected {text,background,border(unused)}
+	[SchemeInfoSel] = { col_gray4, col_cyan, "#000000" }, // infobar middle  selected {text,background,border(unused)}
+	[SchemeInfoNorm] = { col_gray3, col_gray1, "#000000" }, // infobar middle  unselected {text,background,border(unused)}
 };
 
 /* tagging */
