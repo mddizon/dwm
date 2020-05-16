@@ -22,6 +22,11 @@ static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+       [SchemeStatus] = { selbgcolor, selfgcolor, "#000000" }, // Statusbar right
+       [SchemeTagsSel] = { selbgcolor, selfgcolor, "#000000" }, // Tagbar left selected
+       [SchemeTagsNorm] = { normfgcolor, normbgcolor, "#000000" }, // Tagbar left unselected
+       [SchemeInfoSel] = { selfgcolor, selbgcolor, "#000000" }, // infobar middle  selected
+       [SchemeInfoNorm] = { normbgcolor, normbgcolor, "#000000" }, // infobar middle unselected
 };
 
 /* tagging */
