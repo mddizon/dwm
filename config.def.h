@@ -3,6 +3,11 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 12;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 12;       /* vert outer gap between windows and screen edge */
+static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
@@ -46,6 +51,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define MODALT Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -71,6 +77,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|MODALT,                XK_h,      incrgaps,       {.i = +5 } },
+	{ MODKEY|MODALT,                XK_l,      incrgaps,       {.i = -5 } },
+	{ MODKEY|MODALT|ShiftMask,      XK_h,      incrogaps,      {.i = +5 } },
+	{ MODKEY|MODALT|ShiftMask,      XK_l,      incrogaps,      {.i = -5 } },
+	{ MODKEY|MODALT|ControlMask,    XK_h,      incrigaps,      {.i = +5 } },
+	{ MODKEY|MODALT|ControlMask,    XK_l,      incrigaps,      {.i = -5 } },
+	{ MODKEY|MODALT,                XK_0,      togglegaps,     {0} },
+	{ MODKEY|MODALT|ShiftMask,      XK_0,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
